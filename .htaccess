@@ -1,0 +1,9 @@
+# Parse HTML files as PHP
+AddType application/x-httpd-php .html .htm
+
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Optional: Hide .html extension in URL (if desired later, currently keeping explicit .html)
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^([^\.]+)$ $1.html [NC,L]

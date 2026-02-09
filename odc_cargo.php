@@ -1,0 +1,115 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Over-Dimensional Cargo - Star Transport Company</title>
+        <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        if (window.location.protocol === 'file:') {
+            window.location.href = "http://localhost/odc_cargo.html";
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav style="flex-wrap: wrap;">
+                <a href="index.php" class="logo"><img src="/assets/images/stc_logo_black.png" alt="Star Transport"></a>
+                <ul class="nav-links" style="gap: 1.5rem;">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="services.php">Services</a></li>
+                    <li><a href="odc_cargo.php" class="active">ODC Cargo</a></li>
+                    <li><a href="heavy_machinery.php">Heavy Mach.</a></li>
+                    <li><a href="how_it_works.php">How It Works</a></li>
+                    <li><a href="work_done.php">Work Done</a></li>
+                    <li><a href="contact.php">Contact</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <?php
+                        $dashboard_link = "pages/customer/dashboard.php";
+                        if (isset($_SESSION['role'])) {
+                            if ($_SESSION['role'] === 'admin') {
+                                $dashboard_link = "pages/admin/dashboard.php";
+                            } elseif ($_SESSION['role'] === 'driver') {
+                                $dashboard_link = "pages/driver/dashboard.php";
+                            }
+                        }
+                        ?>
+                        <a href="<?php echo $dashboard_link; ?>" class="btn btn-primary">Dashboard</a>
+                        <a href="pages/auth/logout.php" class="btn btn-outline" style="margin-left: 1rem;">Logout</a>
+                    <?php else: ?>
+                        <a href="pages/auth/login.php" class="btn btn-outline">Login</a>
+                    <?php endif; ?>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" style="min-height: 50vh;">
+        <div class="container">
+            <div class="hero-text" style="text-align: center; margin: 0 auto; max-width: 800px;">
+                <h1>Over-Dimensional <span class="text-gradient">Cargo</span></h1>
+                <p>Star specialized logistics for loads that exceed standard dimensions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fa-solid fa-ruler-combined"></i></div>
+                    <h3>Oversized Loads</h3>
+                    <p style="color: var(--text-muted); margin-top: 1rem;">Expert handling of cargo exceeding standard
+                        length, width, or height limits.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <h3>Route Survey</h3>
+                    <p style="color: var(--text-muted); margin-top: 1rem;">Detailed route planning and feasibility
+                        studies to ensure safe passage.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fa-solid fa-file-shield"></i></div>
+                    <h3>Permits & Compliance</h3>
+                    <p style="color: var(--text-muted); margin-top: 1rem;">We handle all necessary permissions and
+                        regulatory compliance for ODC transport.</p>
+                </div>
+            </div>
+
+            <div class="glass-card" style="margin-top: 3rem; display: flex; align-items: center; gap: 2rem;">
+                <div style="flex: 1;">
+                    <h2>Why Choose Star for ODC?</h2>
+                    <p style="color: var(--text-muted); margin: 1rem 0;">Transporting over-dimensional cargo requires
+                        precision, planning, and specialized equipment. Our fleet includes hydraulic axles, low-bed
+                        trailers, and periodic maintenance to ensure safety.</p>
+                    <a href="pages/auth/register.php" class="btn btn-primary">Get ODC Quote</a>
+                </div>
+                <div
+                    style="flex: 1; height: 300px; background: #1e293b; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                    <img src="/assets/images/odc_cargo_new.jpg" alt="ODC Cargo"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Star Transport Company. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Star Transport Company</title>
+        <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        if (window.location.protocol === 'file:') {
+            window.location.href = "http://localhost/contact.html";
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav style="flex-wrap: wrap;">
+                <a href="index.html" class="logo"><img src="/assets/images/logo_odc_transparent.png"
+                        alt="Star Transport"></a>
+                <ul class="nav-links" style="gap: 1.5rem;">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="odc_cargo.html">ODC Cargo</a></li>
+                    <li><a href="heavy_machinery.html">Heavy Mach.</a></li>
+                    <li><a href="how_it_works.html">How It Works</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <?php if(isset($_SESSION['user_id'])): ?>
+                    <a href="pages/customer/dashboard.html" class="btn btn-primary">Dashboard</a>
+                    <a href="pages/auth/logout.php" class="btn btn-outline" style="margin-left: 1rem;">Logout</a>
+                    <?php else: ?>
+                    <a href="pages/auth/login.html" class="btn btn-outline">Login</a>
+                    <a href="pages/auth/register.html" class="btn btn-primary" style="margin-left: 1rem;">Register</a>
+                    <?php endif; ?>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-text" style="text-align: center; margin: 0 auto; max-width: 800px; margin-bottom: 4rem;">
+                <h1>Contact <span class="text-gradient">Us</span></h1>
+                <p>We're here to help. Reach out to us for any inquiries regarding ODC or general transport.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+                <div class="glass-card">
+                    <form action="#" onsubmit="alert('Message sent (Demo)'); return false;">
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Name</label>
+                            <input type="text" placeholder="Your Name"
+                                style="width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.2); color: white; outline: none;">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email</label>
+                            <input type="email" placeholder="your@email.com"
+                                style="width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.2); color: white; outline: none;">
+                        </div>
+                        <div style="margin-bottom: 2rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message</label>
+                            <textarea rows="4" placeholder="How can we help?"
+                                style="width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.2); color: white; outline: none;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+
+                <div style="display: flex; flex-direction: column; justify-content: center; gap: 2rem;">
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <div
+                            style="width: 50px; height: 50px; background: rgba(249, 115, 22, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary);">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 0.25rem;">Phone</h4>
+                            <p style="color: var(--text-muted);">+91 98503 31638<br>+91 88889 76160</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <div
+                            style="width: 50px; height: 50px; background: rgba(249, 115, 22, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary);">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 0.25rem;">Email</h4>
+                            <p style="color: var(--text-muted);">startranport9767@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <div
+                            style="width: 50px; height: 50px; background: rgba(249, 115, 22, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary);">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 0.25rem;">Office</h4>
+                            <p style="color: var(--text-muted);">Plot No-300, Sec.7 PTNTDA,<br>Bhosari, MIDC,
+                                Pune-411026</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Star Transport Company. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
